@@ -1,3 +1,4 @@
+import CheckboxGroup from '../lib/CheckboxGroup';
 import Checkbox from '../lib/Checkbox';
 import image from '../assets/logo192.png';
 
@@ -6,6 +7,7 @@ const  Demo = () => {
         <>
             <h1>This is the Demo Page</h1>
             <section>
+                <h2>Checkbox</h2>
                 <div>
                     <h3>General usage</h3>
                     <Checkbox>
@@ -53,6 +55,20 @@ const  Demo = () => {
                             <img src={image} alt="Logo" />
                         </div>
                     </Checkbox>
+                </div>
+            </section>
+            <section>
+                <h2>CheckboxGroup</h2>
+                <div>
+                    <h3>General usage</h3>
+                    <CheckboxGroup name={'Demo group'} description={'Some longer description text here'} errorMessage={'Error message'}>
+                        <Checkbox>
+                            {'Some item'}
+                        </Checkbox>
+                        <Checkbox>
+                            {'Another item'}
+                        </Checkbox>
+                    </CheckboxGroup>
                 </div>
             </section>
         </>

@@ -1,30 +1,28 @@
 import React from "react";
 
+import makeClassNames from "../../utils/makeClassNames";
+
 import classes from "./CheckboxGroup.module.css";
 
 const CheckboxGroup = (props) => {
     const {name, description, legendLabel, errorMessage} = props;
     
-    const groupClasses = [
-        classes.group,
-        props.className,
-    ].filter(Boolean).join(' ')
-    
-    const descriptionClasses = [
-        classes.description
-    ].filter(Boolean).join(' ')
-    
-    const errorClasses = [
-        classes.description,
-        classes.error
-    ].filter(Boolean).join(' ')
+    const groupClasses = makeClassNames({
+        [classes.group]: true,
+        [props.className]: props.className,
+    });
+
+    const errorClasses = makeClassNames({
+        [classes.description]: true,
+        [classes.error]: true,
+    }); 
 
     return (
         <fieldset name={name} className={groupClasses}>
             <legend className={classes.legend}>
                 <p className={classes.title}>{legendLabel || name}</p>
                 {description && (
-                    <p className={descriptionClasses}>{description}</p>
+                    <p className={classes.description}>{description}</p>
                 )}
             </legend>
             {errorMessage && (

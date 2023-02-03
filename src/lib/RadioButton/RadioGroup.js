@@ -1,36 +1,36 @@
 import React, { useState } from "react";
 
+import makeClassNames from "../../utils/makeClassNames";
 import {RadioGroupProvider} from "./RadioGroupContext";
+
 import classes from "./RadioGroup.module.css";
 
 const RadioGroup = (props) => {
-    const { name, description, legendLabel, errorMessage, value, onChange } = props;
+    const { name, description, legendLabel, errorMessage, value } = props;
     
     const [selected, setSelected] = useState(value);
     const handleChange = (e) => {
         setSelected(e.target.value)
-        onChange && onChange(e.target.value);
+        if (props.onChange) {
+            props.onChange(e.target.value);
+        };
     }
     
-    const groupClasses = [
-        classes.group,
-        props.className,
-    ].filter(Boolean).join(' ')
+    const groupClasses = makeClassNames({
+        [classes.group]: true,
+        [props.className]: props.className,
+    });
 
-    const descriptionClasses = [
-        classes.description
-    ].filter(Boolean).join(' ')
-
-    const errorClasses = [
-        classes.description,
-        classes.error
-    ].filter(Boolean).join(' ')
+    const errorClasses = makeClassNames({
+        [classes.description]: true,
+        [classes.error]: true,
+    }); 
 
     return (
         <fieldset name={name} className={groupClasses}>
             <legend className={classes.legend}>
                 <p className={classes.title}>{legendLabel || name}</p>
-                {description && <p className={descriptionClasses}>{description}</p>}
+                {description && <p className={classes.description}>{description}</p>}
             </legend>
             {errorMessage && <p className={errorClasses}>{errorMessage}</p>}
             <RadioGroupProvider

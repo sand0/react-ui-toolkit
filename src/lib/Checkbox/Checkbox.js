@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FiCheck, FiMinus } from "react-icons/fi";
 
+import makeClassNames from "../../utils/makeClassNames";
+
 import classes from './Checkbox.module.css';
 
 const Checkbox = React.forwardRef(
@@ -20,24 +22,23 @@ const Checkbox = React.forwardRef(
             }
         };
 
-        const wrapperClasses = [
-            classes.wrapper,
-            props.className,
-        ].filter(Boolean).join(' ')
+        const wrapperClasses = makeClassNames({
+            [classes.wrapper]: true,
+            [props.className]:props.className,
+        });
         
-        const controlClasses = [
-            classes.control,
-            (checked || indeterminate) && classes.hasMark,
-            (disabled) && classes.disabled,
-            (required) && classes.required,
-            (error) && classes.error,
-        ].filter(Boolean).join(' ')
+        const controlClasses = makeClassNames({
+            [classes.control]: true,
+            [classes.checked]: checked,
+            [classes.disabled]: disabled,
+            [classes.error]: error,
+        });
 
-        const labelClasses = [
-            classes.label,
-            (disabled) && classes.disabled,
-            (error) && classes.error,
-        ].filter(Boolean).join(' ')
+        const labelClasses = makeClassNames({
+            [classes.label]: true,
+            [classes.disabled]: disabled,
+            [classes.error]: error,
+        });
         
         return (
             <div className={wrapperClasses}>

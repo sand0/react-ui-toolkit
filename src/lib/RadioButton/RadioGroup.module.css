@@ -1,0 +1,21 @@
+.group {
+    border: none;
+}
+
+.legend {
+    padding: 0;
+}
+
+.title {
+    margin: 0.5rem 0 0 0;
+    font-weight: 500;
+}
+
+.description {
+    margin: 0;
+    font-size: small;
+}
+
+.error {
+    color: #d43726;
+}

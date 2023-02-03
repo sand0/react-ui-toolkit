@@ -1,0 +1,76 @@
+/* Wrappers */
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.5em 0;
+}
+
+/* Input block */
+
+.input {
+    flex-shrink: 0;
+    block-size: 1rem;
+    inline-size: 1rem;
+    position: absolute;
+    opacity: 0;
+    margin: 1px;
+}
+
+/* Visible control block */
+
+.control {
+    flex-shrink: 0;
+    block-size: 1rem;
+    inline-size: 1rem;
+    box-sizing: content-box;
+    border: 1px solid #2e2e2e;
+    color: white;
+    border-radius: 0.6rem;
+    display: flex;
+    
+}
+
+.control span svg {
+    vertical-align: top;
+}
+
+.control.disabled {
+    border-color: #9e9e9e;
+}
+
+.control.checked {
+    background-color: #245abc;
+}
+
+.control.disabled.checked {
+    background-color: #9e9e9e;
+}
+
+.control.error.checked {
+    background-color: #d43726;
+}
+
+.control.error {
+    border-color: #d43726;
+    background-color: #d4372650;
+}
+
+.control.error::after {
+    color: #d43726;
+}
+
+.control.checked::after{
+    margin-left: 0.15rem;
+}
+
+/* Label block */
+
+.label {
+    margin: 0 0.5em;
+}
+
+.label.disabled {
+    color: #9e9e9e;    
+}

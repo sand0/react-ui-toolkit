@@ -1,5 +1,5 @@
-import CheckboxGroup from '../lib/CheckboxGroup';
-import Checkbox from '../lib/Checkbox';
+import CheckboxGroup from '../lib/Checkbox/CheckboxGroup';
+import Checkbox from '../lib/Checkbox/Checkbox';
 import image from '../assets/logo192.png';
 
 const  Demo = () => {

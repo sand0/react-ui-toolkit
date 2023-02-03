@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-import { FiCheck, FiMinus } from "react-icons/fi";
+import React, { useContext } from "react";
+import { FiCircle } from "react-icons/fi";
 
 import makeClassNames from "../../utils/makeClassNames";
+import RadioGroupContext from "./RadioGroupContext";
 
-import classes from './Checkbox.module.css';
+import classes from './RadioButton.module.css';
 
-const Checkbox = React.forwardRef(
+const RadioButton = React.forwardRef(
     (props, ref) => {
-        const { disabled, id, name, required, value, error } =
-            props;
-
-        const [checked, setChecked] = useState(props.checked);
-        const [indeterminate, setIndeterminate] = useState(props.indeterminate);
-
-        const handleChange = (e) => {
-            setChecked((prevChecked) => !prevChecked);
-            setIndeterminate(false);
-
-            if (props.onChange) {
-                props.onChange(e);
-            }
-        };
+        const { disabled, id, name, value, error } = props;
+        
+        const context = useContext(RadioGroupContext);
+        
+        const checked = value === context.selected;
 
         const wrapperClasses = makeClassNames({
             [classes.wrapper]: true,
@@ -42,22 +34,20 @@ const Checkbox = React.forwardRef(
         
         return (
             <div className={wrapperClasses}>
-                <input className={classes.input}
-                    ref={ref}
-                    type="checkbox"
-                    name={name || id}
+                <input
+                    className={classes.input}
+                    type="radio"
                     id={id}
-                    checked={checked}
-                    disabled={disabled}
-                    onChange={handleChange}
+                    name={name}
                     value={value}
-                    aria-required={required}
-                    aria-checked={indeterminate ? "mixed" : undefined}
+                    checked={checked}
+                    onChange={context.onChange}
+                    disabled={disabled}
+                    ref={ref}
                 />
                 <div className={controlClasses}>
                     <span aria-hidden="true">
-                        {checked && <FiCheck />}
-                        {indeterminate && <FiMinus />}
+                        {checked && <FiCircle />}
                     </span>
                 </div>
                 <div className={labelClasses}>
@@ -68,4 +58,4 @@ const Checkbox = React.forwardRef(
     }
 );
 
-export default Checkbox;
+export default RadioButton;

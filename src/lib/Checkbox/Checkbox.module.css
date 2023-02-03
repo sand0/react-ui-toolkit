@@ -1,0 +1,84 @@
+/* Wrappers */
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.5em 0;
+}
+
+/* Input block */
+
+.input {
+    flex-shrink: 0;
+    block-size: 1rem;
+    inline-size: 1rem;
+    position: absolute;
+    opacity: 0;
+    margin: 1px;
+}
+
+/* Visible control block */
+
+.control {
+    flex-shrink: 0;
+    block-size: 1rem;
+    inline-size: 1rem;
+    box-sizing: content-box;
+    border: 1px solid #2e2e2e;
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    
+}
+
+.control span svg {
+    vertical-align: top;
+}
+
+.control.disabled {
+    border-color: #9e9e9e;
+}
+
+.control.hasMark {
+    background-color: #245abc;
+}
+
+.control.disabled.hasMark {
+    background-color: #9e9e9e;
+}
+
+.control.error.hasMark {
+    background-color: #d43726;
+}
+
+.control.error {
+    border-color: #d43726;
+    background-color: #d4372650;
+}
+
+.control.required::after {
+    content: "*";
+    vertical-align: top;
+    font-size: 0.6rem;
+    margin-left: 1.15rem;
+    color: #2e2e2e;
+}
+
+.control.error::after {
+    color: #d43726;
+}
+
+.control.hasMark::after{
+    margin-left: 0.15rem;
+}
+
+/* Label block */
+
+.label {
+    margin: 0 0.5em;
+}
+
+.label.disabled {
+    color: #9e9e9e;    
+}

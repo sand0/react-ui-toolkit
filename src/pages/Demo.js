@@ -1,5 +1,7 @@
 import CheckboxGroup from '../lib/Checkbox/CheckboxGroup';
 import Checkbox from '../lib/Checkbox/Checkbox';
+import RadioButton from '../lib/RadioButton/RadioButton';
+import RadioGroup from '../lib/RadioButton/RadioGroup';
 import image from '../assets/logo192.png';
 
 const  Demo = () => {
@@ -10,9 +12,16 @@ const  Demo = () => {
                 <h2>Checkbox</h2>
                 <div>
                     <h3>General usage</h3>
-                    <Checkbox>
-                        {'Label'}
-                    </Checkbox>
+                    <RadioGroup 
+                        name='Test Radiogroup'
+                    >
+                        <RadioButton disabled value={'1'}>
+                            {'Label 1'}
+                        </RadioButton>
+                        <RadioButton disabled value={'2'}>
+                            {'Label 2'}
+                        </RadioButton>
+                    </RadioGroup>
                 </div>
                 <div>
                     <h3>Disabled state</h3>

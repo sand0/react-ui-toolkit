@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import makeClassNames from "../../utils/makeClassNames";
-import {RadioGroupProvider} from "./RadioGroupContext";
+import { RadioGroupProvider } from "./RadioGroupContext";
 
 import classes from "./RadioGroup.module.css";
 
 const RadioGroup = (props) => {
-    const { name, description, legendLabel, errorMessage, value } = props;
-    
+    const { name, description, legendLabel, errorMessage, value, variant = 'column' } = props;
+
     const [selected, setSelected] = useState(value);
     const handleChange = (e) => {
         setSelected(e.target.value)
@@ -15,7 +15,11 @@ const RadioGroup = (props) => {
             props.onChange(e.target.value);
         };
     }
-    
+
+    useEffect(() => {
+        setSelected(value)
+    }, [value])
+
     const groupClasses = makeClassNames({
         [classes.group]: true,
         [props.className]: props.className,
@@ -24,7 +28,13 @@ const RadioGroup = (props) => {
     const errorClasses = makeClassNames({
         [classes.description]: true,
         [classes.error]: true,
-    }); 
+    });
+
+    const childrenClasses = makeClassNames({
+        [classes.children]: true,
+        [classes.flexRow]: variant === 'row',
+        [classes.flexColumn]: variant === 'column',
+    })
 
     return (
         <fieldset name={name} className={groupClasses}>
@@ -35,10 +45,10 @@ const RadioGroup = (props) => {
             {errorMessage && <p className={errorClasses}>{errorMessage}</p>}
             <RadioGroupProvider
                 onChange={handleChange}
-                name={name} 
+                name={name}
                 selected={selected}
             >
-                {props.children}
+                <div className={childrenClasses}>{props.children}</div>
             </RadioGroupProvider>
         </fieldset>
     );

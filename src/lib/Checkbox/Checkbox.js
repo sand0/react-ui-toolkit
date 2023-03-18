@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiCheck, FiMinus } from "react-icons/fi";
 
 import makeClassNames from "../../utils/makeClassNames";
@@ -13,6 +13,14 @@ const Checkbox = React.forwardRef(
         const [checked, setChecked] = useState(props.checked);
         const [indeterminate, setIndeterminate] = useState(props.indeterminate);
 
+        useEffect(() => {
+            setChecked(props.checked)
+        }, [props.checked])
+        
+        useEffect(() => {
+            setIndeterminate(props.indeterminate)
+        }, [props.indeterminate])
+
         const handleChange = (e) => {
             setChecked((prevChecked) => !prevChecked);
             setIndeterminate(false);
@@ -24,9 +32,9 @@ const Checkbox = React.forwardRef(
 
         const wrapperClasses = makeClassNames({
             [classes.wrapper]: true,
-            [props.className]:props.className,
+            [props.className]: props.className,
         });
-        
+
         const controlClasses = makeClassNames({
             [classes.control]: true,
             [classes.hasMark]: checked || indeterminate,
@@ -39,7 +47,7 @@ const Checkbox = React.forwardRef(
             [classes.disabled]: disabled,
             [classes.error]: error,
         });
-        
+
         return (
             <div className={wrapperClasses}>
                 <input className={classes.input}

@@ -5,7 +5,7 @@ import makeClassNames from "../../utils/makeClassNames";
 import classes from "./CheckboxGroup.module.css";
 
 const CheckboxGroup = (props) => {
-    const {name, description, legendLabel, errorMessage} = props;
+    const {name, description, legendLabel, errorMessage, variant = 'column'} = props;
     
     const groupClasses = makeClassNames({
         [classes.group]: true,
@@ -16,6 +16,12 @@ const CheckboxGroup = (props) => {
         [classes.description]: true,
         [classes.error]: true,
     }); 
+
+    const childrenClasses = makeClassNames({
+        [classes.children]: true,
+        [classes.flexRow]: variant === 'row',
+        [classes.flexColumn]: variant === 'column',
+    })
 
     return (
         <fieldset name={name} className={groupClasses}>
@@ -28,7 +34,7 @@ const CheckboxGroup = (props) => {
             {errorMessage && (
                 <p className={errorClasses}>{errorMessage}</p>
             )}
-            {props.children}
+            <div className={childrenClasses}>{props.children}</div>
         </fieldset>
     );
 };

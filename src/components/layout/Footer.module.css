@@ -1,0 +1,9 @@
+footer {
+    max-width: 60rem;
+    margin: auto;
+    padding: 1rem 2rem;
+}
+
+footer p {
+    color: var(--color-gray-400);
+}

@@ -29,7 +29,7 @@ const Checkbox = React.forwardRef(
         
         const controlClasses = makeClassNames({
             [classes.control]: true,
-            [classes.checked]: checked,
+            [classes.hasMark]: checked || indeterminate,
             [classes.disabled]: disabled,
             [classes.error]: error,
         });

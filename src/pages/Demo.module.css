@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.menuWrapper {
+    flex-basis: 20%;
+    min-width: 12rem;
+    margin-right: 1rem;
+}
+
+.exampleWrapper {
+    flex-basis: 80%;
+}

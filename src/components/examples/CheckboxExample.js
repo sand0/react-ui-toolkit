@@ -1,18 +1,22 @@
 import { useState } from "react";
 
+import Section from "../demo/Section";
+import CodePreview from "../demo/CodePreview";
+import LivePlayground from "../demo/LivePlayground";
 
-
-import Card from "../demo/Card";
 import Checkbox from "../../lib/Checkbox/Checkbox";
 import CheckboxGroup from "../../lib/Checkbox/CheckboxGroup";
 import RadioGroup from "../../lib/RadioButton/RadioGroup";
 import RadioButton from "../../lib/RadioButton/RadioButton";
+
+import codeExample from "./CheckboxExample.code"
 
 const states = {
     checked: 'checked',
     unchecked: 'unchecked',
     indeterminate: 'indeterminate',
 }
+
 const stateToCheckedProp = (state) => {
     switch (state) {
         case states.checked:
@@ -37,92 +41,76 @@ const CheckboxExample = () => {
     }
 
     return (
-        <Card
-            title="Checkbox"
-            controls={(
-                <>
-                    <RadioGroup
-                        legendLabel="State control"
-                        variant="row"
-                        value={state}
-                        onChange={(selected) => { setState(selected) }}
-                    >
-                        <RadioButton value={'unchecked'}>Unchecked</RadioButton>
-                        <RadioButton value={'checked'}>Checked</RadioButton>
-                        <RadioButton value={'indeterminate'}>Indeterminate</RadioButton>
-                    </RadioGroup>
-                    <CheckboxGroup
-                        legendLabel="Other props"
-                        variant="row"
-                    >
-
-
-                        <Checkbox
-                            id="control-required"
-                            checked={required}
-                            onChange={(e) => {
-                                setRequired(e.target.checked);
-                            }}
-                        >
-                            Required
-                        </Checkbox>
-                        <Checkbox
-                            id="control-disabled"
-
-                            checked={disabled}
-                            onChange={(e) => {
-                                setDisabled(e.target.checked);
-                            }}
-                        >
-                            Disabled
-                        </Checkbox>
-                        <Checkbox
-                            id="control-error"
-                            checked={error}
-                            onChange={(e) => {
-                                setError(e.target.checked);
-                            }}
-                        >
-                            Has an error
-                        </Checkbox>
-                    </CheckboxGroup>
-
-                </>
-            )}
-            demo={(
-                <Checkbox
-                    id="test-id"
-                    name="test-name"
-                    checked={stateToCheckedProp(state)}
-                    indeterminate={state === 'indeterminate'}
-                    onChange={handleDemoChange}
-                    disabled={disabled}
-                    required={required}
-                    error={error}
+        <>
+            <h2>Checkbox</h2>
+            <Section title="Live playground">
+                <LivePlayground
+                    controls={(
+                        <>
+                            <RadioGroup
+                                legendLabel="State control"
+                                variant="row"
+                                value={state}
+                                onChange={(selected) => { setState(selected) }}
+                            >
+                                <RadioButton value={states.unchecked}>Unchecked</RadioButton>
+                                <RadioButton value={states.checked}>Checked</RadioButton>
+                                <RadioButton value={states.indeterminate}>Indeterminate</RadioButton>
+                            </RadioGroup>
+                            <CheckboxGroup
+                                legendLabel="Other props"
+                                variant="row"
+                            >
+                                <Checkbox
+                                    checked={required}
+                                    onChange={(e) => {
+                                        setRequired(e.target.checked);
+                                    }}
+                                >
+                                    Required
+                                </Checkbox>
+                                <Checkbox
+                                    checked={disabled}
+                                    onChange={(e) => {
+                                        setDisabled(e.target.checked);
+                                    }}
+                                >
+                                    Disabled
+                                </Checkbox>
+                                <Checkbox
+                                    checked={error}
+                                    onChange={(e) => {
+                                        setError(e.target.checked);
+                                    }}
+                                >
+                                    Has an error
+                                </Checkbox>
+                            </CheckboxGroup>
+                        </>
+                    )}
                 >
-                    {'Some label for checkbox'}
-                </Checkbox>
-            )}
-            code={`
-const ExampleComponent = (props) => {
-    const [state, setState] = React.useState(false);
-
-    const changeHandler = (e) => {
-        setState(e.target.checked);
-    }
-
-    return (
-        <Checkbox
-            id="example-checkbox-id"
-            name="example-checkbox-name"
-            checked={state}
-            onChange={changeHandler}
-        >
-            <div>Can use any React Element as a label</div>
-        </Checkbox>
-    );
-}`}
-        />
+                    <Checkbox
+                        id="test-id"
+                        name="test-name"
+                        checked={stateToCheckedProp(state)}
+                        indeterminate={state === states.indeterminate}
+                        onChange={handleDemoChange}
+                        disabled={disabled}
+                        required={required}
+                        error={error}
+                    >
+                        {'Some label for checkbox'}
+                    </Checkbox>
+                </LivePlayground>
+            </Section>
+            <Section title="Controlled usage">
+                <p>You can simply use it as controlled input:</p>
+                <CodePreview
+                    title={'Controlled Checkbox example'}
+                    code={codeExample}
+                />
+            </Section>
+        </>
     )
 }
 

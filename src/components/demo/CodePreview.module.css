@@ -1,0 +1,14 @@
+.wrapper {
+    padding-top: 1px;
+    border-radius: 1rem;
+    background-color: var(--color-secondary-700);
+}
+
+.title {
+    margin: 1rem;
+}
+
+.container {
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--color-secondary-200);
+}

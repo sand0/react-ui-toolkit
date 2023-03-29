@@ -2,7 +2,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './pages/Root';
 import Home from './pages/Home';
 import Demo from './pages/Demo';
-import CheckboxExample from './components/examples/CheckboxExample'
+import GenericExample from './pages/GenericExample'
+
+import checkboxDoc from './pages/docs/checkbox.doc.json';
 
 const router = createBrowserRouter([
     {
@@ -10,8 +12,8 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         children: [
             { index: true, element: <Home /> },
-            { path: 'demo', element: <Demo />, children: [
-                {path: 'checkbox', element: <CheckboxExample />}
+            { path: 'documentation', element: <Demo />, children: [
+                {path: 'checkbox', element: <GenericExample data={checkboxDoc} />}
             ] }
         ]
     },

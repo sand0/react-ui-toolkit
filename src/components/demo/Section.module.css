@@ -1,0 +1,11 @@
+.wrapper {
+    margin-top: 2rem;
+}
+
+.title {
+    color: var(--color-primary-100);
+}
+
+.container {
+    border-radius: 1rem;
+}

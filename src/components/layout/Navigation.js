@@ -20,7 +20,7 @@ const Navigation = () => {
                     </li>
                     <li>
                         <NavLink
-                            to="/demo"
+                            to="/documentation"
                             className={navItemClasses}
                         >
                             Components

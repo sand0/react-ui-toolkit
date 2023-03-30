@@ -1,5 +1,6 @@
 {
     "title": "Checkbox",
+    "anchor": "checkbox",
     "body": {
         "sections": [
             {

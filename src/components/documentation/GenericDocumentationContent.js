@@ -1,11 +1,11 @@
 import React from "react";
 
-import Section from "../components/demo/Section";
-import CodePreview from "../components/demo/CodePreview";
+import Section from "./Section";
+import CodePreview from "./CodePreview";
 
-import LoadableContent from "../components/examples/ExampleLoader";
+import LoadableContent from "../examples/ExampleLoader";
 
-const GenericExamplePage = (props) => {
+const GenericDocumentationContent = (props) => {
     const { data: {title, body} } = props;
 
     return (
@@ -35,4 +35,4 @@ const GenericExamplePage = (props) => {
     )
 }
 
-export default GenericExamplePage;
+export default GenericDocumentationContent;

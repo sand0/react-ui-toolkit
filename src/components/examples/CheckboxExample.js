@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import LivePlayground from "../demo/LivePlayground";
+import LivePlayground from "../documentation/LivePlayground";
 
 import Checkbox from "../../lib/Checkbox/Checkbox";
 import CheckboxGroup from "../../lib/Checkbox/CheckboxGroup";

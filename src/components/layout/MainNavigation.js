@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import { MdOutlinePets } from "react-icons/md";
 
-import classes from './Navigation.module.css'
+import classes from './MainNavigation.module.css'
 
 const Navigation = () => {
     const navItemClasses = ({ isActive }) => isActive ? classes.active : undefined
@@ -15,7 +16,7 @@ const Navigation = () => {
                             className={navItemClasses}
                             end
                         >
-                            Home
+                            <MdOutlinePets /> Home
                         </NavLink>
                     </li>
                     <li>

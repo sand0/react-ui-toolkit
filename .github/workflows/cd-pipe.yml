@@ -1,0 +1,27 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+
+      - name: Prepare build
+        run: npm ci && npm run build
+
+      - name: Publish live
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SAND0_PET_01 }}'
+          channelId: live
+          projectId: sand0-pet-01

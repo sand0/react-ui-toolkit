@@ -9,12 +9,12 @@ const defaultValues = {
 const RadioGroupContext = React.createContext(defaultValues);
 
 export const RadioGroupProvider = (props) => {
-    const { onChange, name, selected } = props;
-    return (
-        <RadioGroupContext.Provider value={{ onChange, name, selected }}>
-            {props.children}
-        </RadioGroupContext.Provider>
-    );
-}
+  const { onChange, name, selected } = props;
+  return (
+    <RadioGroupContext.Provider value={{ onChange, name, selected }}>
+      {props.children}
+    </RadioGroupContext.Provider>
+  );
+};
 
 export default RadioGroupContext;

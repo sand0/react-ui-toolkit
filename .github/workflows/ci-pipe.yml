@@ -1,7 +1,8 @@
-name: Check PR and deploy preview
+name: Check PR
 on: pull_request
 jobs:
   build_and_preview:
+    name: Build, Test, Publish preview
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
 

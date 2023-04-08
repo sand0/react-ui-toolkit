@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+{
+    "name": "React Pet-kit",
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/firebase-cli": "latest"
+    },
+    // Set internal container's hostname with docker run cli argument
+    // otherwise it will be equal container id which changes each time as container is build
+    "runArgs": [
+        "--hostname=localhost"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        3000
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "yarn install",
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "node",
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions to install when the container is created.
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "eamodio.gitlens"
+            ],
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": []
+                    }
+                }
+            }
+        }
+    }
+}

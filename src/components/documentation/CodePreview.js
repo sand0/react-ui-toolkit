@@ -1,12 +1,12 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import * as themes from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {solarizedLight} from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import classes from './CodePreview.module.css';
 
 // override some styles for better main theme matching
 // TODO: move this out and create own code theme
 const styles = {
-    ...themes.solarizedLight,
+    ...solarizedLight,
     hljs: {
         overflowX: 'auto',
         padding: '1rem',

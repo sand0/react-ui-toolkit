@@ -1,0 +1,59 @@
+{
+    "title": "Checkbox",
+    "anchor": "checkbox",
+    "body": {
+        "sections": [
+            {
+                "title": "Live playground",
+                "type": "live",
+                "content": "./CheckboxExample"
+            },
+            {
+                "title": "Controlled input",
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "para", 
+                        "body": "If you want to track Checkbox' state in your component's state you can do."
+                    },
+                    {
+                        "type": "para", 
+                        "body": "By doing so, you can make the Checkbox a controlled component, which means that its checked state is determined by the state of your component."
+                    },
+                    {
+                        "type": "para",
+                        "body": "To make a checkbox component a controlled component, you'll want to create a state property that represents its checked state. You can then pass this value as the checked prop to your checkbox component."
+                    },
+                    {
+                        "type": "code",
+                        "title": "Controlled Checkbox example",
+                        "body": "const ExampleComponent = (props) => {\n    const [state, setState] = React.useState(false);\n\n    const changeHandler = (e) => {\n        setState(e.target.checked);\n    }\n\n    return (\n        <Checkbox\n            id=\"example-checkbox-id\"\n            name=\"example-checkbox-name\"\n            checked={state}\n            onChange={changeHandler}\n        >\n            <div>Can use any React Element as a label</div>\n        </Checkbox>\n    );\n}"
+                    }
+                ]
+            },
+            {
+                "title": "Uncontrolled input",
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "para", 
+                        "body": "On other hand you can use the Checkbox component as an uncontrolled component."
+                    },
+                    {
+                        "type": "para", 
+                        "body": "It means that its checked state is determined by the component itself, rather than being managed by the parent component."
+                    },
+                    {
+                        "type": "para",
+                        "body": "Also, you can use a ref to get access to the Checkbox component's checked state value. This could be useful in situations where you don't need to manage the checked state of the Checkbox component yourself, but still need to access the value of the component's checked state in some way"
+                    },
+                    {
+                        "type": "code",
+                        "title": "Uncontrolled Checkbox example",
+                        "body": "const ExampleComponent = (props) => {\n    const checkboxRef = React.createRef(null);\n\n    const clickHandler = (e) => {\n        e.preventDefault();\n        console.log(checkboxRef.current?.checked);\n    };\n  \n    return (\n        <Checkbox\n            id=\"example-checkbox-id\"\n            name=\"example-checkbox-name\"\n            ref={checkboxRef}\n        >\n            <div onClick={clickHandler}>Can use any React Element as a label</div>\n        </Checkbox>\n    );\n}"
+                    }
+                ]
+            }
+        ]
+    }
+}

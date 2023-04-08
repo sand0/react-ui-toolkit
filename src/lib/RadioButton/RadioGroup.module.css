@@ -2,6 +2,19 @@
     border: none;
 }
 
+.children {
+    display: flex;
+}
+
+.flexRow {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
 .legend {
     padding: 0;
 }

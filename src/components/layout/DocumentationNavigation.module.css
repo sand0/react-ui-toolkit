@@ -1,0 +1,20 @@
+.header {
+    padding: 1rem 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.list a {
+    text-decoration: none;
+    color: var(--color-secondary-400);
+}
+
+.list a:hover,
+.list a.active {
+    color: var(--color-primary-600);
+    text-shadow: 1px 1px 2px var(--color-primary-400);
+}

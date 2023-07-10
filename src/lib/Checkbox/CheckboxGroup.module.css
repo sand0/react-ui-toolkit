@@ -1,34 +1,34 @@
 .group {
-    border: none;
+  border: none;
 }
 
 .children {
-    display: flex;
+  display: flex;
 }
 
 .flexRow {
-    flex-direction: row;
-    gap: 1rem;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .flexColumn {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .legend {
-    padding: 0;
+  padding: 0;
 }
 
 .title {
-    margin: 0.5rem 0 0 0;
-    font-weight: 500;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
 }
 
 .description {
-    margin: 0;
-    font-size: small;
+  margin: 0;
+  font-size: small;
 }
 
 .error {
-    color: #d43726;
+  color: #d43726;
 }

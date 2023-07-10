@@ -9,6 +9,7 @@ import Docs from './pages/Docs';
 import GenericDocumentationContent from './components/documentation/GenericDocumentationContent';
 
 import checkboxDoc from './pages/docs/checkbox.doc.json';
+import checkboxGroupDoc from './pages/docs/checkbox-group.doc.json';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Navigate to='checkbox' replace /> },
           {
-            path: 'checkbox',
+            path: checkboxDoc.anchor,
             element: <GenericDocumentationContent data={checkboxDoc} />,
+          },
+          {
+            path: checkboxGroupDoc.anchor,
+            element: <GenericDocumentationContent data={checkboxGroupDoc} />,
           },
         ],
       },

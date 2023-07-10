@@ -32,10 +32,16 @@ const CheckboxGroup = (props) => {
   return (
     <fieldset name={name} className={groupClasses}>
       <legend className={classes.legend}>
-        <p className={classes.title}>{legendLabel || name}</p>
-        {description && <p className={classes.description}>{description}</p>}
+        <div className={classes.title}>
+          <span>{legendLabel || name}</span>
+        </div>
+        {description && (
+          <div className={classes.description}>
+            <span>{description}</span>
+          </div>
+        )}
       </legend>
-      {errorMessage && <p className={errorClasses}>{errorMessage}</p>}
+      {errorMessage && <span className={errorClasses}>{errorMessage}</span>}
       <div className={childrenClasses}>{props.children}</div>
     </fieldset>
   );

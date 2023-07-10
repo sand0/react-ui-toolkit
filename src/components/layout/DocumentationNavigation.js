@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './DocumentationNavigation.module.css';
 
 import checkboxDoc from '../../pages/docs/checkbox.doc.json';
+import checkboxGroupDoc from '../../pages/docs/checkbox-group.doc.json';
 
 const MenuItem = ({ to, text }) => {
   const menuItemClasses = ({ isActive }) =>
@@ -23,6 +24,10 @@ const DocumentationNavigation = () => {
       <nav>
         <ul className={classes.list}>
           <MenuItem to={checkboxDoc.anchor} text={checkboxDoc.title} />
+          <MenuItem
+            to={checkboxGroupDoc.anchor}
+            text={checkboxGroupDoc.title}
+          />
           <MenuItem to='random' text='This does not work!' />
         </ul>
       </nav>

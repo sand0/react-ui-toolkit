@@ -1,0 +1,23 @@
+{
+  "title": "Checkbox Group",
+  "anchor": "checkbox-group",
+  "body": {
+    "sections": [
+      {
+        "title": "Live playground",
+        "type": "live",
+        "content": "./CheckboxGroupExample"
+      },
+      {
+        "title": "Overview",
+        "type": "doc",
+        "content": [
+          {
+            "type": "para",
+            "body": "The CheckboxGroup component is a customizable checkbox group component that allows users to select multiple options from a list of choices."
+          }
+        ]
+      }
+    ]
+  }
+}
